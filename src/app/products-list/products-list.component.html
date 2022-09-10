@@ -1,0 +1,47 @@
+<ul class="products">
+  <li class="row">
+    <div class="col left">
+      <div class="thumbnail">
+        <a href="#">
+          <img [src]="products[0].thumbnail" [alt]="products[0].name" />
+        </a>
+      </div>
+      <div class="detail">
+        <div class="name"><a href="#">{{products[0].name}}</a></div>
+        <div class="description">
+          {{products[0].description}}
+        </div>
+        <div class="price">${{products[0].price}}</div>
+      </div>
+    </div>
+
+    <div class="col right">
+      <div class="quantity">
+        <input type="number" class="quantity" step="1" value="2" />
+      </div>
+    </div>
+  </li>
+
+  <li class="row">
+    <div class="col left">
+      <div class="thumbnail">
+        <a href="#">
+          <img src="{{products[1].thumbnail}}" alt="" />
+        </a>
+      </div>
+      <div class="detail">
+        <div class="name"><a href="#">{{products[1].name}}</a></div>
+        <div class="description">
+          {{products[1].description}}
+        </div>
+        <div class="price">${{products[1].price}}</div>
+      </div>
+    </div>
+
+    <div class="col right">
+      <div class="quantity">
+        <input type="number" class="quantity" step="1" value="1" />
+      </div>
+    </div>
+  </li>
+</ul>
