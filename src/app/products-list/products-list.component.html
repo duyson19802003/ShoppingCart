@@ -18,6 +18,7 @@
 
     <div class="col right">
       <div class="quantity">
+        <!-- using Template Reference Variables same as id of element -->
         <input #inputQuantity type="number" class="quantity" step="1" [value]="product.quantity"
           (input)="updateQuantity(inputQuantity, product.id)" />
       </div>
