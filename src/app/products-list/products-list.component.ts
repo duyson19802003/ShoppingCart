@@ -47,6 +47,10 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {}
   removeProduct(productId: string): void {
     const index = this.products.findIndex((p) => p.id === productId);
-    this.products.splice(index, 1);
+    if (index !== -1) this.products.splice(index, 1);
+  }
+  updateQuantity(quantity: any, productId: string): void {
+    console.log('The quantity is: ' + quantity.value);
+    if (quantity.value == 0) this.removeProduct(productId);
   }
 }
