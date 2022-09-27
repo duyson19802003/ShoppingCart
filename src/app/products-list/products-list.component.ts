@@ -10,15 +10,28 @@ import { Product } from './../product.model';
 export class ProductsListComponent implements OnInit {
   @Input() products: Product[] = [];
   @Output() onRemoveProduct = new EventEmitter();
+  @Output() onUpdateQuantity = new EventEmitter();
 
   constructor() {}
   ngOnInit(): void {}
 
-  removeProduct(productId: string): void {
+  removeProduct(productId: number): void {
     this.onRemoveProduct.emit(productId);
   }
-  updateQuantity(quantity: any, productId: string): void {
-    console.log('The quantity is: ' + quantity.value);
-    if (quantity.value == 0) this.removeProduct(productId);
+  updateQuantity(inputQuantity: HTMLInputElement, productId: number): void {
+    const value = inputQuantity.value;
+    const intValue = parseInt(value);
+    alert('' + intValue);
+
+    if (intValue < 1) {
+      inputQuantity.value = -intValue + '';
+    } else if (value.length > 2) {
+      inputQuantity.value = value.slice(0, 2);
+    }
+
+    this.onUpdateQuantity.emit({
+      productId,
+      quantity: parseInt(inputQuantity.value) || '',
+    });
   }
 }
