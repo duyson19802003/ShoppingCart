@@ -1,10 +1,10 @@
 <main>
   <section class="container">
-    <app-header></app-header>
+    <app-header [numberItems]="numberItems"></app-header>
   </section>
 
   <section class="container">
-    <app-products-list></app-products-list>
+    <app-products-list [products]="products" (onRemoveProduct)="removeProduct($event)"></app-products-list>
   </section>
 
   <section class="container">
